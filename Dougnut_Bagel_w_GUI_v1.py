@@ -66,7 +66,8 @@ def spin():
 
         root.update_idletasks()
         root.update()
-
+        
+#Loading Screen
 def progress_bar():
     c()
     bar_width = 50
