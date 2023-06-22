@@ -1,3 +1,3 @@
 # Random_Python
-python codes
+These are python codes
 Just making random python scripts...
