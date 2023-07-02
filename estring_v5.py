@@ -1,25 +1,12 @@
 import string, sys, os, time, operator
 from functools import reduce
+#from loading import *
 from sort import *
 
-def clear():
+def clear(): #clear the screen
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def progress_bar():
-    clear()
-    bar_width = 50
-    animation = ["\\", "|", "/", "-",]
-    an = ["+", "×"]
-    for i in range(1, 101):
-        percent = i
-        filled_width = int(i / 100 * bar_width)
-        bar = '|' * filled_width + '·' * (bar_width - filled_width)
-        animation_index = (i % len(animation))
-        ai = (i % len(an))
-        print(f'LOADING: {an[ai]} [{bar}] {an[ai]} {percent}% {animation[animation_index]}', end='\r')
-        time.sleep(0.1)
-
-def again():
+def again(): #Run again
     print("==================================")
     ask = input("Do you want to try again (y/n): ")
     print("==================================")
@@ -176,6 +163,7 @@ class Text:
                     print(f"Squared num: {sorted([x**2 for x in numbers_list], reverse=False)}")
                     print(f"Squared odd: {sorted([x**2 for x in odd_list], reverse=False)}")
                     print(f"Squared even: {sorted([x**2 for x in even_list], reverse=False)}")
+                    again()
                 else:
                     again()
             else:
@@ -190,6 +178,7 @@ def string_game():
     string_list = []
     done = False  # flag variable
     while not done:
+        #progress_bar() #Loading screen
         s = input("Enter a string (press enter to stop): ")
         if s == "":
             if len(string_list) == 0:  # if no string has been entered
@@ -198,7 +187,6 @@ def string_game():
             else:
                 done = True  # exit the loop
         else:
-            #progress_bar()
             string_list.append(s)
             txt.gen(string_list)
             txt.count_letters(string_list)
