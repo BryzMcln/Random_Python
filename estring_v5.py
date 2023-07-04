@@ -25,12 +25,12 @@ class Text:
     def gen(self, string_list):
         clear()
         s = string_list
-        print("==================================")
+        print("============CHARACTERS=============")
         print(f"You Entered: {s}")
         print(f"Reverse: {s[::-1]}")
         print(f"Id:", id(s))
         print(f"Memory: {sys.getsizeof(s)} bytes & {sys.getsizeof(s) * 8} bits ")
-        print(f"Characters:")
+        #print(f"Characters:")
 
     def count_letters(self, string_list):
         vowels = set("aeiou")
@@ -96,9 +96,6 @@ class Text:
                 print(f"(*) Number/s: {res_num}")
                 print(f"(/) Number/s: {quo_num}")
                 print(f"(%) Number/s: {div_rem}")
-                print(f"(//) Number/s: {div_num}")
-                sys.set_int_max_str_digits(100000)
-                print(f"(**) Number/s: {mul_num}")
                 if not len(numbers_list) <= 3:
                     print("==================================")
                     print(f"Bubble Sorted List: {bubble_sort(numbers_list)}")
@@ -112,7 +109,7 @@ class Text:
                     print(f"Built-in Sorted List: {sorted(numbers_list)}")
                 else:
                     print("==================================")
-                    print("The number list, cannot be sorted.")
+                    print("Number List cannot be sorted.")
 
         #EVEN LIST
                 print("==================================")
@@ -131,7 +128,7 @@ class Text:
                         print(f"Built-in Sorted List: {sorted(even_list)}")
                     else:
                         print("==================================")
-                        print("Even List, cannot be sorted")
+                        print("Even List cannot be sorted.")
                 else:
                     print("==================================")
                     print("No even numbers.")
@@ -152,7 +149,7 @@ class Text:
                         print(f"Built-in Sorted List: {sorted(odd_list)}")
                     else:
                         print("==================================")
-                        print("Odd List, cannot be sorted.")
+                        print("Odd List cannot be sorted.")
                 else:
                     print("==================================")
                     print("No odd numbers.")
@@ -163,6 +160,9 @@ class Text:
                     print(f"Squared num: {sorted([x**2 for x in numbers_list], reverse=False)}")
                     print(f"Squared odd: {sorted([x**2 for x in odd_list], reverse=False)}")
                     print(f"Squared even: {sorted([x**2 for x in even_list], reverse=False)}")
+                    sys.set_int_max_str_digits(100000)
+                    print(f"(//) Number/s: {div_num}")
+                    print(f"(**) Number/s: {mul_num}")
                     again()
                 else:
                     again()
