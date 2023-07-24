@@ -53,7 +53,8 @@ class Text:
             print(f"Symbols: {sum(1 for c in string_list for s in c if s in string.punctuation)}")
             print(f"Spaces: {sum(1 for c in string_list for s in c if s.isspace())}")
         else:
-            print("str: None")
+            print("==================================")
+            return print("String: None")
         
     def count_numbers(self, string_list):
         num_numbers = num_ave = sum_num = sub_num = res_num = mul_num = quo_num = div_rem = div_num = 0
@@ -162,14 +163,11 @@ class Text:
                     print(f"Squared even: {sorted([x**2 for x in even_list], reverse=False)}")
                     sys.set_int_max_str_digits(100000)
                     print(f"(//) Number/s: {div_num}")
-                    print(f"(**) Number/s: {mul_num}")
-                    again()
-                else:
-                    again()
+                    print(f"(**) Number/s: {mul_num}")         
             else:
                 print("==================================")
-                print("int: None")
-                again()
+                return print("Integer: None")
+                
     
             
 def string_game():
@@ -191,6 +189,7 @@ def string_game():
             txt.gen(string_list)
             txt.count_letters(string_list)
             txt.count_numbers(string_list)
+            again()
 
 if __name__ == "__main__":
     string_game()
