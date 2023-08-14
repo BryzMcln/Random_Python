@@ -1,3 +1,4 @@
+print('error')
 """ import datetime
 def generate_calendar(num_days, num_hours, num_minutes, num_seconds, start_date):
     curr_datetime = start_date
