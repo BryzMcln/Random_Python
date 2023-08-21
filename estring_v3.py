@@ -1,12 +1,10 @@
 import string, sys, os, time
 from functools import reduce
 from sort import *
-
-def clear():
-    os.system('cls' if os.name == 'nt' else 'clear')
+from clear import *
 
 def progress_bar():
-    clear()
+    clr()
     bar_width = 50
     animation = ["\\", "|", "/", "-",]
     an = ["+", "×"]
@@ -24,13 +22,13 @@ def again():
     ask = input("Do you want to try again (y/n): ")
     print("==================================")
     if ask == "y" or ask == "Y":
-        clear()
+        clr()
         string_game()
     elif ask == "n" or ask == "N":
-        clear()
+        clr()
         sys.exit()
     else:
-        clear()
+        clr()
         print("Invalid Input! Try again.")
         again()
 
@@ -71,7 +69,7 @@ class Text:
                     else:
                         num_odd += 1; odd_add += n; odd_min -= n; odd_mul *= n; odd_list .append(n); odd_div /= float(n); odd_ave = round(odd_add / len(odd_list), 2); odd_list.sort(reverse=True)
         
-        clear()
+        clr()
         print("==================================")
         print(f"You Entered: {s}")
         print(f"Reverse: {s[::-1]}")
@@ -127,7 +125,7 @@ class Text:
         again()
 
 def string_game():
-    clear()
+    clr()
     txt = Text()
     string_list = []
     done = False  # flag variable
@@ -135,7 +133,7 @@ def string_game():
         s = input("Enter a string (press enter to stop): ")
         if s == "":
             if len(string_list) == 0:  # if no string has been entered
-                clear()
+                clr()
                 print("!!!Please enter at least one string!!!")
             else:
                 done = True  # exit the loop

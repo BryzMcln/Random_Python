@@ -2,28 +2,29 @@ import string, sys, os, time, operator
 from functools import reduce
 #from loading import *
 from sort import *
+from clear import *
 
-def clear(): #clear the screen
-    os.system('cls' if os.name == 'nt' else 'clear')
+""" def clear(): #clear the screen
+    os.system('cls' if os.name == 'nt' else 'clear') """
 
 def again(): #Run again
     print("==================================")
     ask = input("Do you want to try again (y/n): ")
     print("==================================")
     if ask == "y" or ask == "Y":
-        clear()
+        clr()
         string_game()
     elif ask == "n" or ask == "N":
-        clear()
+        clr()
         sys.exit()
     else:
-        clear()
+        clr()
         print("Invalid Input! Try again.")
         again()
 
 class Text:
     def gen(self, string_list):
-        clear()
+        clr()
         s = string_list
         print("============CHARACTERS=============")
         print(f"You Entered: {s}")
@@ -171,7 +172,7 @@ class Text:
     
             
 def string_game():
-    clear()
+    clr()
     txt = Text()
     string_list = []
     done = False  # flag variable
@@ -180,7 +181,7 @@ def string_game():
         s = input("Enter a string (press enter to stop): ")
         if s == "":
             if len(string_list) == 0:  # if no string has been entered
-                clear()
+                clr()
                 print("!!!Please enter at least one string!!!")
             else:
                 done = True  # exit the loop

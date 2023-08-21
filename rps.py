@@ -1,13 +1,11 @@
 import random, os
-
-def clear():
-    os.system('cls' if os.name == 'nt' else 'clear')
+from clear import *
 
 def rps():
     hands = {1: 'rock', 2: 'paper', 3: 'scissors'}
     player_score = 0
     computer_score = 0
-    clear()
+    clr()
     while player_score < 10 and computer_score < 10:
         print("=============================")
         print("      ROCK-PAPER-SCISSORS")

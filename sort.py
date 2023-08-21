@@ -1,7 +1,5 @@
 import random, os
-
-def clear():
-    os.system('cls')
+from clear import *
 
 # sort a list using stupid sort
 def stupid_sort(num_list):
@@ -121,7 +119,7 @@ def random_number_list(n):
 
 
 def sorting():
-    clear()
+    clr()
     print("==========================")
     print("Sorting Algorithms:")
     print("""==========================
