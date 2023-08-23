@@ -1,4 +1,6 @@
 # Random_Python
 These are python codes
 Just making random python scripts...
-1. Some Python code are connected to the other
+1. Some Python code are connected to each other 
+2. Feel free to copy the code
+3. Enjoy bruv...
