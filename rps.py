@@ -6,7 +6,7 @@ COMPUTER_SCORE = 0
 clr()
 def menu():
     print("=================================")
-    print("      ~ ROCK·PAPER·SCISSORS ~")
+    print("    ~ ROCK·PAPER·SCISSORS ~")
     print(f"    PLAYER: {PLAYER_SCORE} || COMPUTER: {COMPUTER_SCORE} ")
     print("=================================")
     print(f"1. {HANDS[1]}")
@@ -47,14 +47,18 @@ def rps():
             print(f"\t{HANDS[choice]} <===> {computer_choice}")
 
     if PLAYER_SCORE == 10:
-        print("Congratulations! You reached 10 victories. You win!")
+        clr()
+        print("VICTORY, YOU WIN!")
+        print("You have reached a score of 10.")
     else:
-        print("Game over. Computer reached 10 victories. Computer wins!")
-    input('Press any key to continue...')
+        clr()
+        print("GAME OVER. COMPUTER WINS")
+        print("Computer reached 10 victories.")
+    input('Press ENTER to continue...')
 
 def leave():
-    ask = ["Do you want to leave?", "Are you qutting?", "You don't want to play?", "Giving up?", "Exit the game?",
-           "End this gameplay?", "Done playing?", "Try'na stop now?"]
+    ask = ["Do you want to leave?", "Are you qutting?", "You don't want play?", "Giving up?", "Exit the game?",
+           "End this gameplay?", "Done playing?", "Try'na stop now?, Can't play anymore?"]
     random.shuffle(ask)  # Shuffle the list of ask
     ran_ask = random.choice(ask)  # Choose a random from the shuffled list
     while True:
@@ -65,7 +69,7 @@ def leave():
             if me == 1:
                 exit()
             elif me == 2:
-                print("Continuing...")
+                input('Press ENTER to continue...')
                 rps()
             else:
                 raise ValueError('Invalid! Try again')
