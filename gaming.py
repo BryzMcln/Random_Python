@@ -4,10 +4,11 @@ from estring_v3 import *
 from sort import *
 from tictactoe import *
 from lottery import *
+from clear import *
 import time
 
 def show():
-    clear()
+    clr()
     print("""
     ==========================
     Choose a game:

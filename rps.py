@@ -1,46 +1,77 @@
 import random, os
 from clear import *
+HANDS = {1: 'ROCK', 2: 'PAPER', 3: 'SCISSORS',}
+PLAYER_SCORE = 0
+COMPUTER_SCORE = 0
+clr()
+def menu():
+    print("=================================")
+    print("      ~ ROCK·PAPER·SCISSORS ~")
+    print(f"    PLAYER: {PLAYER_SCORE} || COMPUTER: {COMPUTER_SCORE} ")
+    print("=================================")
+    print(f"1. {HANDS[1]}")
+    print(f"2. {HANDS[2]}")
+    print(f"3. {HANDS[3]}")
+    print("4. CANCEL")
+    print("=================================")
 
 def rps():
-    hands = {1: 'rock', 2: 'paper', 3: 'scissors'}
-    player_score = 0
-    computer_score = 0
-    clr()
-    while player_score < 10 and computer_score < 10:
-        print("=============================")
-        print("      ROCK-PAPER-SCISSORS")
-        print("=============================")
-        print(f"1. {hands[1]}")
-        print(f"2. {hands[2]}")
-        print(f"3. {hands[3]}")
-        print("=============================")
+    global PLAYER_SCORE, COMPUTER_SCORE
+    while PLAYER_SCORE < 10 and COMPUTER_SCORE < 10:
+        menu()
+        choice = input("Enter your choice (1-3 or 4): ")
 
-        choice = int(input("Enter your choice (1-3): "))
+        if choice == '4':
+            leave()
+            break
 
-        if choice not in hands:
-            print("Invalid choice. Please select a number from 1 to 3.")
+        choice = int(choice)
+
+        if choice not in HANDS.keys():
+            clr()
+            print("Invalid! Try again.")
             continue
 
-        computer_choice = random.choice(list(hands.keys()))
-        print(f"{hands[choice]} <===> {computer_choice}")
-
-
+        computer_choice = random.choice(list(HANDS.keys()))
         if choice == computer_choice:
+            clr()
             print("It's a tie! No points awarded.")
+            print(f"\t{HANDS[choice]} <===> {computer_choice}")
         elif (choice == 1 and computer_choice == 3) or (choice == 2 and computer_choice == 1) or (choice == 3 and computer_choice == 2):
-            player_score += 1
+            clr()
+            PLAYER_SCORE += 1
+            print(f"\t{HANDS[choice]} <===> {computer_choice}")
         else:
-            computer_score += 1
+            clr()
+            COMPUTER_SCORE += 1
+            print(f"\t{HANDS[choice]} <===> {computer_choice}")
 
-        print("Player Score:", player_score)
-        print("Computer Score:", computer_score)
-        print("=============================")
-
-    if player_score == 10:
+    if PLAYER_SCORE == 10:
         print("Congratulations! You reached 10 victories. You win!")
     else:
         print("Game over. Computer reached 10 victories. Computer wins!")
     input('Press any key to continue...')
+
+def leave():
+    ask = ["Do you want to leave?", "Are you qutting?", "You don't want to play?", "Giving up?", "Exit the game?",
+           "End this gameplay?", "Done playing?", "Try'na stop now?"]
+    random.shuffle(ask)  # Shuffle the list of ask
+    ran_ask = random.choice(ask)  # Choose a random from the shuffled list
+    while True:
+        clr()
+        try: 
+            print(f"{ran_ask}")
+            me = int(input("(1) YES || (2) NO: "))
+            if me == 1:
+                exit()
+            elif me == 2:
+                print("Continuing...")
+                rps()
+            else:
+                raise ValueError('Invalid! Try again')
+        except ValueError as e:
+            print("ERROR 404!")
+    
 
 if __name__ == "__main__":
     rps()
