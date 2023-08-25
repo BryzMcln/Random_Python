@@ -1,6 +1,6 @@
 import subprocess
 
-def run_ping_command():
+def run_ping():
     command = "ping youtube.com -t"
     
     try:
@@ -20,4 +20,4 @@ def run_ping_command():
         print("An error occurred:", e)
 
 if __name__ == "__main__":
-    run_ping_command()
+    run_ping()
