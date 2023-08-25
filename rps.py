@@ -1,6 +1,6 @@
 import random, os
 from clear import *
-HANDS = {1: 'ROCK', 2: 'PAPER', 3: 'SCISSORS',}
+HANDS = {1: 'ROCK', 2: 'PAPER', 3: 'SCISSORS'}
 PLAYER_SCORE = 0
 COMPUTER_SCORE = 0
 clr()
@@ -33,18 +33,18 @@ def rps():
             continue
 
         computer_choice = random.choice(list(HANDS.keys()))
+        computer_choice_value = HANDS[computer_choice]
         if choice == computer_choice:
             clr()
-            print("It's a tie! No points awarded.")
-            print(f"\t{HANDS[choice]} <===> {computer_choice}")
+            print(f"      {HANDS[choice]} <=(TIE)=> {computer_choice_value}")
         elif (choice == 1 and computer_choice == 3) or (choice == 2 and computer_choice == 1) or (choice == 3 and computer_choice == 2):
             clr()
             PLAYER_SCORE += 1
-            print(f"\t{HANDS[choice]} <===> {computer_choice}")
+            print(f"\t{HANDS[choice]} <===> {computer_choice_value}")
         else:
             clr()
             COMPUTER_SCORE += 1
-            print(f"\t{HANDS[choice]} <===> {computer_choice}")
+            print(f"\t{HANDS[choice]} <===> {computer_choice_value}")
 
     if PLAYER_SCORE == 10:
         clr()
