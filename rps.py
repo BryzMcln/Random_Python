@@ -32,9 +32,9 @@ def rps():
             print("Invalid! Try again.")
             continue
 
-        computer_choice = random.choice(list(HANDS.keys()))
-        computer_choice_value = HANDS[computer_choice]
-        if choice == computer_choice:
+        computer_choice = random.choice(list(HANDS.keys())) #Randomize the computers hand
+        computer_choice_value = HANDS[computer_choice] #To visually see the computers hand
+        if choice == computer_choice: 
             clr()
             print(f"      {HANDS[choice]} <=(TIE)=> {computer_choice_value}")
         elif (choice == 1 and computer_choice == 3) or (choice == 2 and computer_choice == 1) or (choice == 3 and computer_choice == 2):
@@ -46,7 +46,7 @@ def rps():
             COMPUTER_SCORE += 1
             print(f"\t{HANDS[choice]} <===> {computer_choice_value}")
 
-    if PLAYER_SCORE == 10:
+    if PLAYER_SCORE == 10: #you can change the maximum score.
         clr()
         print("VICTORY, YOU WIN!")
         print("You have reached a score of 10.")
@@ -58,7 +58,7 @@ def rps():
 
 def leave():
     ask = ["Do you want to leave?", "Are you qutting?", "You don't want play?", "Giving up?", "Exit the game?",
-           "End this gameplay?", "Done playing?", "Try'na stop now?, Can't play anymore?"]
+           "End this gameplay?", "Done playing?", "Try'na stop now?", "Can't play anymore?", "Wanna take a break?"]
     random.shuffle(ask)  # Shuffle the list of ask
     ran_ask = random.choice(ask)  # Choose a random from the shuffled list
     while True:
