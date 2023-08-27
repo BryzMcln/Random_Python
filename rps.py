@@ -49,11 +49,13 @@ def rps():
     if PLAYER_SCORE == 10: #you can change the maximum score.
         clr()
         print("VICTORY, YOU WIN!")
-        print("You have reached a score of 10.")
+        print("You have reached a score of 10.") # YOU WIN
+        again()
     else:
         clr()
-        print("GAME OVER. COMPUTER WINS")
+        print("GAME OVER. COMPUTER WINS") #IT'S GAME OVER
         print("Computer reached 10 victories.")
+        again()
     input('Press ENTER to continue...')
 
 def leave():
@@ -64,7 +66,7 @@ def leave():
     while True:
         clr()
         try: 
-            print(f"{ran_ask}")
+            print(f"\t{ran_ask}")
             me = int(input("(1) YES || (2) NO: "))
             if me == 1:
                 exit()
@@ -76,6 +78,26 @@ def leave():
         except ValueError as e:
             print("ERROR 404!")
     
+def again():
+    q = ['Wanna play more?', 'Another Round?', 'Start Again?', 'Play again?', 'Try again?', 'One more time?', 'Lets do it again?', 
+         'New Game?','Next Round?', 'Rematch?', 'Keep Going?', 'Lets give it a shot?', 'Revenge or Comeback?', 'Repeat?']
+    random.shuffle(q)
+    rnd_q = random.choice(q)
+
+    while True:
+        clr()
+        try:
+            print(f"\t{q}")
+            u = int(input("(1) YES || (2) NO: "))
+            if u == 1:
+                rps()
+            elif u == 2:
+                leave()
+            else:
+                raise ValueError('Invalid!')
+        except ValueError as e:
+            print('ERROR 404')
+
 
 if __name__ == "__main__":
     rps()
