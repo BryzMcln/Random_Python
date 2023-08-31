@@ -1,10 +1,17 @@
-import random, os
+import random
 from clear import *
 HANDS = {1: 'ROCK', 2: 'PAPER', 3: 'SCISSORS'}
 PLAYER_SCORE = 0
 COMPUTER_SCORE = 0
+HIGH_SCORE = 5
 clr()
-def menu():
+
+def main_menu():
+        print("    ~ ROCK·PAPER·SCISSORS ~")
+        input("Enter to start: ")
+        rps()
+
+def game():
     print("=================================")
     print("    ~ ROCK·PAPER·SCISSORS ~")
     print(f"    PLAYER: {PLAYER_SCORE} || COMPUTER: {COMPUTER_SCORE} ")
@@ -16,9 +23,9 @@ def menu():
     print("=================================")
 
 def rps():
-    global PLAYER_SCORE, COMPUTER_SCORE
-    while PLAYER_SCORE < 10 and COMPUTER_SCORE < 10:
-        menu()
+    global PLAYER_SCORE, COMPUTER_SCORE, HIGH_SCORE
+    while PLAYER_SCORE < HIGH_SCORE and COMPUTER_SCORE < HIGH_SCORE:
+        game()
         choice = input("Enter your choice (1-3 or 4): ")
 
         if choice == '4':
@@ -46,17 +53,18 @@ def rps():
             COMPUTER_SCORE += 1
             print(f"\t{HANDS[choice]} <===> {computer_choice_value}")
 
-    if PLAYER_SCORE == 10: #you can change the maximum score.
+    if PLAYER_SCORE == HIGH_SCORE:
         clr()
         print("VICTORY, YOU WIN!")
         print("You have reached a score of 10.") # YOU WIN
+        input('Press ENTER to continue...')
         again()
     else:
         clr()
         print("GAME OVER. COMPUTER WINS") #IT'S GAME OVER
         print("Computer reached 10 victories.")
+        input('Press ENTER to continue...')
         again()
-    input('Press ENTER to continue...')
 
 def leave():
     ask = ["Do you want to leave?", "Are you qutting?", "You don't want play?", "Giving up?", "Exit the game?",
@@ -66,7 +74,7 @@ def leave():
     while True:
         clr()
         try: 
-            print(f"\t{ran_ask}")
+            print(f"{ran_ask}")
             me = int(input("(1) YES || (2) NO: "))
             if me == 1:
                 exit()
@@ -87,17 +95,22 @@ def again():
     while True:
         clr()
         try:
-            print(f"\t{q}")
+            print(f"{rnd_q}")
             u = int(input("(1) YES || (2) NO: "))
+            """ print("User's choice:", u)  # Add this line for debugging """
             if u == 1:
-                rps()
+                main_menu()
+                break
             elif u == 2:
+                print("Exiting the game...")
                 leave()
+                break
             else:
                 raise ValueError('Invalid!')
         except ValueError as e:
             print('ERROR 404')
 
 
+
 if __name__ == "__main__":
-    rps()
+    main_menu()
