@@ -1,6 +1,6 @@
 from Dougnut_Bagel_v1 import *
 from game import *
-from estring_v3 import *
+from estring_v5 import *
 from sort import *
 from tictactoe import *
 from lottery import *
@@ -22,7 +22,15 @@ def show():
     """)
 
 def main():
-    while True:
+    show()
+    choose = 1
+    var: int = int(input("Pick a number: "))
+    func: dict = {0: main, 1: num_game, 2: string_game,3: tictactoe,
+                  4: sorting, 5: lotteries, 6: spin}
+    final = func.get(var, main)
+    final()
+
+"""     while True:
         show()
         try:
             user = int(input("Enter: "))
@@ -44,7 +52,8 @@ def main():
             print('=================')
             print('Error input:', e)
             print('=================')
-            time.sleep(1)
+            time.sleep(1) """
+
 
 if __name__ == "__main__":
     main()
