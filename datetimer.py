@@ -15,11 +15,12 @@ def datetimes():
             n = now.strftime("%I:%M:%S %p")
             y, m, d = now.year, now.month, now.day
             mm = f"{month_name[m]} {y}"  # Fix the format
+            tm: str = "Time"
 
             clear_screen()  # Clear the screen to update the time
 
-            print(f"Time: {n}")
-            print(f"{mm:^30}")  # Make it centered
+            print(f"{tm:^30} \n{n:^30}")
+            print(f"\n{mm:^30}")  # Make it centered
 
             # Get the calendar for the current month
             cal = monthcalendar(y, m)
