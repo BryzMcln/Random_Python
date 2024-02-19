@@ -1,6 +1,12 @@
-import time
+import time, os
+
+
+def clr():
+    os.system("cls")
+
 
 def stopwatch():
+    clr()
     input("Press Enter to start the stopwatch.")
     start_time = time.time()
     try:
@@ -14,6 +20,7 @@ def stopwatch():
         pass
     finally:
         print("\nStopwatch stopped.")
+
 
 if __name__ == "__main__":
     stopwatch()
