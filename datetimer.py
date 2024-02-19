@@ -2,9 +2,11 @@ from datetime import datetime
 from calendar import month_name, monthcalendar, day_abbr
 import time, os, keyboard
 
+
 # Function to clear the console screen (for better time display)
 def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system("cls" if os.name == "nt" else "clear")
+
 
 def datetimes():
     try:
@@ -12,11 +14,12 @@ def datetimes():
             now = datetime.now()
             n = now.strftime("%I:%M:%S %p")
             y, m, d = now.year, now.month, now.day
+            mm = f"{month_name[m]} {y}"  # Fix the format
 
             clear_screen()  # Clear the screen to update the time
 
             print(f"Time: {n}")
-            print(f"Calendar: {month_name[m]} {y}")
+            print(f"{mm:^30}")  # Make it centered
 
             # Get the calendar for the current month
             cal = monthcalendar(y, m)
