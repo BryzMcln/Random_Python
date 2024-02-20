@@ -24,7 +24,7 @@ def pb2():
     for i in range(1, 101):
         p = i 
         f = int(i / 100 * BAR_WIDTH)
-        b = '>' * f + '=' * (BAR_WIDTH - f)
+        b = '|' * f + '·' * (BAR_WIDTH - f)
         #ai = (i % len(a))
         print(f'LOADING: [{b}]{p}%', end='\r')
         time.sleep(0.1)
