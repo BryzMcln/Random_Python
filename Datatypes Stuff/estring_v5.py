@@ -3,7 +3,7 @@ from functools import reduce
 #from loading import *
 from sort import *
 from clear import *
-
+P = print
 """ def clear(): #clear the screen
     os.system('cls' if os.name == 'nt' else 'clear') """
 
@@ -23,15 +23,20 @@ def again(): #Run again
         again()
 
 class Text:
-    def gen(self, string_list):
-        clr()
-        s = string_list
-        print("============CHARACTERS=============")
-        print(f"You Entered: {s}")
-        print(f"Reverse: {s[::-1]}")
-        print(f"Id:", id(s))
-        print(f"Memory: {sys.getsizeof(s)} bytes & {sys.getsizeof(s) * 8} bits ")
-        #print(f"Characters:")
+    def text_analyzer(self, text: str) -> dict:
+        P("================TEXT-ANALYZER================")
+        details: dict = {"User Entered": text,
+                         "Split by words": (words := text.split()),
+                         "Reverse": text[::-1],
+                         "Words": len(words),
+                         "Char Words": len(''.join(words)),
+                         "Char Words w/ Spaces": len(text),
+                         "ID": id(text),
+                         "Memory": sys.getsizeof(text)
+        }
+
+        for key, value in details.items():
+            print(f"{key}: {value}")
 
     def count_letters(self, string_list):
         vowels = set("aeiou")
@@ -171,7 +176,7 @@ class Text:
                 
     
             
-def string_game():
+def string_game() -> None:
     clr()
     txt = Text()
     string_list = []
@@ -187,7 +192,7 @@ def string_game():
                 done = True  # exit the loop
         else:
             string_list.append(s)
-            txt.gen(string_list)
+            txt.text_analyzer(s)
             txt.count_letters(string_list)
             txt.count_numbers(string_list)
             again()
