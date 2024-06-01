@@ -1,9 +1,9 @@
 from secrets import choice
 from string import ascii_letters, digits, punctuation
-from typing import Callable
 
 def pass_gen(length: int) -> str:
     return ''.join(choice(ascii_letters + digits + punctuation) for _ in range(length))
+# pass_gen: Callable[[int], str] = lambda x: ''.join(choice(ascii_letters + digits + punctuation) for _ in range(x))
 
 
 def main() -> None:
