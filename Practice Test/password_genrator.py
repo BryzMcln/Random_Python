@@ -18,7 +18,7 @@ def main() -> None:
     except ValueError:
         print("Invalid input. Please enter an integer.")
 
-def again(): #Run again
+def again() -> None: #Run again
     print("==================================")
     ask = input("Do you want to try again (y/n): ")
     print("==================================")
