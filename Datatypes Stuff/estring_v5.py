@@ -1,6 +1,6 @@
 import string, sys, os, time, operator
 from functools import reduce
-from sort import *
+#from sort import *
 
 P = print
 CUT = "=================================="
@@ -8,9 +8,9 @@ def clr(): #clear the screen
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def again():  # Run again
-    print("==================================")
+    P(CUT)
     ask = input("Do you want to try again (y/n): ")
-    print("==================================")
+    P(CUT)
     if ask == "y" or ask == "Y":
         clr()
         string_game()
@@ -19,13 +19,13 @@ def again():  # Run again
         sys.exit()
     else:
         clr()
-        print("Invalid Input! Try again.")
+        P("Invalid Input! Try again.")
         again()
 
 
 class Text:
     def text_analyzer(self, text: str) -> dict:
-        P("================TEXT-ANALYZER================")
+        P(f"{CUT}TEXT-ANALYZER{CUT}")
         details: dict = {
             "User Entered": text,
             "Split by words": (words := text.split()),
@@ -38,31 +38,31 @@ class Text:
         }
 
         for key, value in details.items():
-            print(f"{key}: {value}")
+            P(f"{key}: {value}")
 
     def count_letters(self, string_list):
         vowels = set("aeiou")
         letters = string.ascii_lowercase
         consonants = set(letters) - vowels
         if sum(1 for word in string_list for letter in word if letter.isalpha() or letter in string.punctuation or letter.isspace()) > 0:
-            print("==================================")
-            print(f"Letters: {sum(1 for word in string_list for letter in word if letter.isalpha())}")
-            print(f"Uppercase Letters: {sum(1 for c in string_list for s in c if s.isupper())}")
-            print(f"Lowercase Letters: {sum(1 for c in string_list for s in c if s.islower())}")
-            print("==================================")
-            print(f"Vowels: {sum(1 for c in string_list for s in c if s.lower() in vowels)}")
-            print(f"Lowercase Vowels: {sum(1 for c in string_list for s in c if s.islower() and s in vowels)}")
-            print(f"Uppercase Vowels: {sum(1 for c in string_list for s in c if s.isupper() and s.lower() in vowels)}")
-            print("==================================")
-            print(f"Consonants: {sum(1 for c in string_list for s in c if s.lower() in consonants)}")
-            print(f"Lowercase Consonant: {sum(1 for c in string_list for s in c if s.islower() and s in consonants)}")
-            print(f"Uppercase Consonant: {sum(1 for c in string_list for s in c if s.isupper() and s.lower() in consonants)}")
-            print("==================================")
-            print(f"Symbols: {sum(1 for c in string_list for s in c if s in string.punctuation)}")
-            print(f"Spaces: {sum(1 for c in string_list for s in c if s.isspace())}")
+            P(CUT)
+            P(f"Letters: {sum(1 for word in string_list for letter in word if letter.isalpha())}")
+            P(f"Uppercase Letters: {sum(1 for c in string_list for s in c if s.isupper())}")
+            P(f"Lowercase Letters: {sum(1 for c in string_list for s in c if s.islower())}")
+            P(CUT)
+            P(f"Vowels: {sum(1 for c in string_list for s in c if s.lower() in vowels)}")
+            P(f"Lowercase Vowels: {sum(1 for c in string_list for s in c if s.islower() and s in vowels)}")
+            P(f"Uppercase Vowels: {sum(1 for c in string_list for s in c if s.isupper() and s.lower() in vowels)}")
+            P(CUT)
+            P(f"Consonants: {sum(1 for c in string_list for s in c if s.lower() in consonants)}")
+            P(f"Lowercase Consonant: {sum(1 for c in string_list for s in c if s.islower() and s in consonants)}")
+            P(f"Uppercase Consonant: {sum(1 for c in string_list for s in c if s.isupper() and s.lower() in consonants)}")
+            P(CUT)
+            P(f"Symbols: {sum(1 for c in string_list for s in c if s in string.punctuation)}")
+            P(f"Spaces: {sum(1 for c in string_list for s in c if s.isspace())}")
         else:
-            print("==================================")
-            return print("String: None")
+            P(CUT)
+            return P("String: None")
 
     def count_numbers(self, string_list):
         num_numbers = num_ave = sum_num = sub_num = res_num = mul_num = quo_num = (
@@ -113,95 +113,95 @@ class Text:
                         odd_list.sort(reverse=True)
             # ALL NUMBERS IN LIST
             if num_numbers > 0:
-                print("==================================")
-                print(f"Number's List: {numbers_list}")
-                print(f"Number/s: {num_numbers}")
-                print(f"Average of the Number/s: {num_ave}")
-                print(f"(+) Number/s: {sum_num}")
-                print(f"(-) Number/s: {sub_num}")
-                print(f"(*) Number/s: {res_num}")
-                print(f"(/) Number/s: {quo_num}")
-                print(f"(%) Number/s: {div_rem}")
+                P(CUT)
+                P(f"Number's List: {numbers_list}")
+                P(f"Number/s: {num_numbers}")
+                P(f"Average of the Number/s: {num_ave}")
+                P(f"(+) Number/s: {sum_num}")
+                P(f"(-) Number/s: {sub_num}")
+                P(f"(*) Number/s: {res_num}")
+                P(f"(/) Number/s: {quo_num}")
+                P(f"(%) Number/s: {div_rem}")
                 if not len(numbers_list) <= 3:
-                    print("==================================")
-                    print(f"Bubble Sorted List: {bubble_sort(numbers_list)}")
-                    print(f"Insertion Sorted List: {insertion_sort(numbers_list)}")
-                    print(f"Selection Sorted List: {selection_sort(numbers_list)}")
-                    print(f"Merge Sorted List: {merge_sort(numbers_list)}")
-                    print(f"Quick Sorted List: {quick_sort(numbers_list)}")
-                    print(f"Radix Sorted List: {radix_sort(numbers_list)}")
-                    print(f"Counting Sort List: {counting_sort(numbers_list, 1)}")
-                    print(f"Stupid Sorted List: {stupid_sort(numbers_list)}")
-                    print(f"Built-in Sorted List: {sorted(numbers_list)}")
+                    P(CUT)
+                    P(f"Bubble Sorted List: {bubble_sort(numbers_list)}")
+                    P(f"Insertion Sorted List: {insertion_sort(numbers_list)}")
+                    P(f"Selection Sorted List: {selection_sort(numbers_list)}")
+                    P(f"Merge Sorted List: {merge_sort(numbers_list)}")
+                    P(f"Quick Sorted List: {quick_sort(numbers_list)}")
+                    P(f"Radix Sorted List: {radix_sort(numbers_list)}")
+                    P(f"Counting Sort List: {counting_sort(numbers_list, 1)}")
+                    P(f"Stupid Sorted List: {stupid_sort(numbers_list)}")
+                    P(f"Built-in Sorted List: {sorted(numbers_list)}")
                 else:
-                    print("==================================")
-                    print("Number List cannot be sorted.")
+                    P(CUT)
+                    P("Number List cannot be sorted.")
 
                 # EVEN LIST
-                print("==================================")
+                P(CUT)
                 if not len(even_list) <= 0:
-                    print(
+                    P(
                         f"Even's List: {even_list}\nEven number/s: {num_even}\nEven's Average: {eve_ave}\n(+) Even: {eve_add}\n(-) Even: {eve_min}\n(*) Even: {eve_mul}\n(/) Even: {round(eve_div, 3)}"
                     )
                     if not len(even_list) <= 3:
-                        print("==================================")
-                        print(f"Bubble Sorted List: {bubble_sort(even_list)}")
-                        print(f"Insertion Sorted List: {insertion_sort(even_list)}")
-                        print(f"Selection Sorted List: {selection_sort(even_list)}")
-                        print(f"Merge Sorted List: {merge_sort(even_list)}")
-                        print(f"Quick Sorted List: {quick_sort(even_list)}")
-                        print(f"Radix Sorted List: {radix_sort(even_list)}")
-                        print(f"Counting Sort List: {counting_sort(even_list, 1)}")
-                        print(f"Stupid Sorted List: {stupid_sort(even_list)}")
-                        print(f"Built-in Sorted List: {sorted(even_list)}")
+                        P(CUT)
+                        P(f"Bubble Sorted List: {bubble_sort(even_list)}")
+                        P(f"Insertion Sorted List: {insertion_sort(even_list)}")
+                        P(f"Selection Sorted List: {selection_sort(even_list)}")
+                        P(f"Merge Sorted List: {merge_sort(even_list)}")
+                        P(f"Quick Sorted List: {quick_sort(even_list)}")
+                        P(f"Radix Sorted List: {radix_sort(even_list)}")
+                        P(f"Counting Sort List: {counting_sort(even_list, 1)}")
+                        P(f"Stupid Sorted List: {stupid_sort(even_list)}")
+                        P(f"Built-in Sorted List: {sorted(even_list)}")
                     else:
-                        print("==================================")
-                        print("Even List cannot be sorted.")
+                        P(CUT)
+                        P("Even List cannot be sorted.")
                 else:
-                    print("==================================")
-                    print("No even numbers.")
+                    P(CUT)
+                    P("No even numbers.")
                 # ODD LIST
-                print("==================================")
+                P(CUT)
                 if not len(odd_list) <= 0:
-                    print(
+                    P(
                         f"Odd's List: {odd_list}\nOdd number/s: {num_odd}\nOdd's Average: {odd_ave}\n(+) Odd: {odd_add}\n(-) Odd: {odd_min}\n(*) Odd: {odd_mul}\n(/) Odd: {round(odd_div, 3)}"
                     )
                     if not len(odd_list) <= 3:
-                        print("==================================")
-                        print(f"Bubble Sorted List: {bubble_sort(odd_list)}")
-                        print(f"Insertion Sorted List: {insertion_sort(odd_list)}")
-                        print(f"Selection Sorted List: {selection_sort(odd_list)}")
-                        print(f"Merge Sorted List: {merge_sort(odd_list)}")
-                        print(f"Quick Sorted List: {quick_sort(odd_list)}")
-                        print(f"Radix Sorted List: {radix_sort(odd_list)}")
-                        print(f"Counting Sort List: {counting_sort(odd_list, 1)}")
-                        print(f"Stupid Sorted List: {stupid_sort(odd_list)}")
-                        print(f"Built-in Sorted List: {sorted(odd_list)}")
+                        P(CUT)
+                        P(f"Bubble Sorted List: {bubble_sort(odd_list)}")
+                        P(f"Insertion Sorted List: {insertion_sort(odd_list)}")
+                        P(f"Selection Sorted List: {selection_sort(odd_list)}")
+                        P(f"Merge Sorted List: {merge_sort(odd_list)}")
+                        P(f"Quick Sorted List: {quick_sort(odd_list)}")
+                        P(f"Radix Sorted List: {radix_sort(odd_list)}")
+                        P(f"Counting Sort List: {counting_sort(odd_list, 1)}")
+                        P(f"Stupid Sorted List: {stupid_sort(odd_list)}")
+                        P(f"Built-in Sorted List: {sorted(odd_list)}")
                     else:
-                        print("==================================")
-                        print("Odd List cannot be sorted.")
+                        P(CUT)
+                        P("Odd List cannot be sorted.")
                 else:
-                    print("==================================")
-                    print("No odd numbers.")
-                print("==================================")
+                    P(CUT)
+                    P("No odd numbers.")
+                P(CUT)
                 more = input("You want more int calculations (y/n): ")
                 if more == "y" or more == "Y":
-                    print("==================================")
-                    print(
+                    P(CUT)
+                    P(
                         f"Squared num: {sorted([x**2 for x in numbers_list], reverse=False)}"
                     )
-                    print(
+                    P(
                         f"Squared odd: {sorted([x**2 for x in odd_list], reverse=False)}"
                     )
-                    print(
+                    P(
                         f"Squared even: {sorted([x**2 for x in even_list], reverse=False)}"
                     )
                     sys.set_int_max_str_digits(100000)
-                    print(f"(//) Number/s: {div_num}")
-                    print(f"(**) Number/s: {mul_num}")
+                    P(f"(//) Number/s: {div_num}")
+                    P(f"(**) Number/s: {mul_num}")
             else:
-                print("==================================")
-                return print("Integer: None")
+                P(CUT)
+                return P("Integer: None")
 
 def string_game() -> None:
     clr()
