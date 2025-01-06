@@ -1,6 +1,6 @@
 import string, sys, os, time, operator
 from functools import reduce
-#from sort import *
+from sort import *
 
 P = print
 CUT = "=================================="

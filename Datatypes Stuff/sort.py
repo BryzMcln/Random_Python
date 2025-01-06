@@ -1,5 +1,8 @@
 import random, os
-from clear import *
+#from clear import *
+
+def clr(): #clear the screen
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 # sort a list using stupid sort
 def stupid_sort(num_list):
