@@ -81,11 +81,12 @@ class Text:
                 sub_num = reduce(lambda x, y: x - y, numbers_list)
                 res_num = reduce(lambda x, y: x * y, numbers_list)
                 mul_num = reduce(lambda x, y: x**y, numbers_list)
-                div_rem = reduce(lambda x, y: x % y, numbers_list)
-                div_num = reduce(lambda x, y: x // y, numbers_list)
+                # Division and Remainder
                 if 0 in numbers_list:
-                    quo_num = "N/A"
+                    quo_num, div_rem, div_num = "N/A"
                 else:
+                    div_num = reduce(lambda x, y: x // y, numbers_list)
+                    div_rem = reduce(lambda x, y: x % y, numbers_list)
                     quo_num = round(reduce(lambda x, y: x / y, numbers_list), 3)
                 # Odd and Even Numbers
                 odd_list, even_list = [], []
@@ -141,7 +142,7 @@ class Text:
                 P(CUT)
                 if not len(even_list) <= 0:
                     P(
-                        f"Even's List: {even_list}\nEven number/s: {num_even}\nEven's Average: {eve_ave}\n(+) Even: {eve_add}\n(-) Even: {eve_min}\n(*) Even: {eve_mul}\n(/) Even: {round(eve_div, 3)}"
+                        f"Even's List: {even_list}\nEven number/s: {num_even}\nEven's Average: {eve_ave}\n(+) Even: {eve_add}\n(-) Even: {eve_min}\n(*) Even: {eve_mul}\n(/) Even: {round(eve_div, 3) if isinstance(eve_div, (int, float)) else eve_div}"
                     )
                     if not len(even_list) <= 3:
                         P(CUT)
