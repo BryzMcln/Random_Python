@@ -4,8 +4,11 @@ from sort import *
 
 P = print
 CUT = "=================================="
-def clr(): #clear the screen
-    os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def clr():  # clear the screen
+    os.system("cls" if os.name == "nt" else "clear")
+
 
 def again():  # Run again
     P(CUT)
@@ -44,7 +47,15 @@ class Text:
         vowels = set("aeiou")
         letters = string.ascii_lowercase
         consonants = set(letters) - vowels
-        if sum(1 for word in string_list for letter in word if letter.isalpha() or letter in string.punctuation or letter.isspace()) > 0:
+        if (
+            sum(
+                1
+                for word in string_list
+                for letter in word
+                if letter.isalpha() or letter in string.punctuation or letter.isspace()
+            )
+            > 0
+        ):
             P(CUT)
             P(f"Letters: {sum(1 for word in string_list for letter in word if letter.isalpha())}")
             P(f"Uppercase Letters: {sum(1 for c in string_list for s in c if s.isupper())}")
@@ -203,6 +214,7 @@ class Text:
             else:
                 P(CUT)
                 return P("Integer: None")
+
 
 def string_game() -> None:
     clr()
