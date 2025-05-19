@@ -79,7 +79,7 @@ def analyze_text():
     result_text.delete(1.0, tk.END)
     result_text.insert(tk.END, analysis + "\n\n" + letter_analysis)
 
-submit_button = tk.Button(root, text="Scan", command=analyze_text)
+submit_button = tk.Button(root, text="Scan", width=20, command=analyze_text)
 submit_button.pack(pady=10)
 
 root.mainloop()
