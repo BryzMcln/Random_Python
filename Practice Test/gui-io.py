@@ -1,6 +1,4 @@
-import tkinter as tk
-import sys
-import string
+import tkinter as tk, sys, string
 from functools import reduce
 
 class Text:
@@ -122,7 +120,6 @@ class Text:
             output.append(f"(*) Number/s: {res_num}")
             output.append(f"(/) Number/s: {quo_num}")
             output.append(f"(%) Number/s: {div_rem}")
-            # ALL NUMBER LIST (sorting) OMITTED AS REQUESTED
             output.append(CUT)
             if not len(even_list) <= 0:
                 output.append(
@@ -167,7 +164,14 @@ def analyze_text():
     result_text.delete(1.0, tk.END)
     result_text.insert(tk.END, analysis + "\n\n" + letter_analysis + "\n\n" + number_analysis)
 
+def clear_all():
+    entry.delete(0, tk.END)
+    result_text.delete(1.0, tk.END)
+
 submit_button = tk.Button(root, text="Scan", width=20, command=analyze_text)
-submit_button.pack(pady=10)
+submit_button.pack(pady=5)
+
+clear_button = tk.Button(root, text="Clear", width=20, command=clear_all)
+clear_button.pack(pady=5)
 
 root.mainloop()
