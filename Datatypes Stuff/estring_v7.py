@@ -4,13 +4,14 @@ from sort import *
 import tkinter as tk
 from tkinter import scrolledtext
 
-P = print
 CUT = "=================================="
+results = []
 
+def P(result):
+    results.append(result)
 
 def clr():  # clear the screen
     os.system("cls" if os.name == "nt" else "clear")
-
 
 def again():  # Run again
     P(CUT)
@@ -26,7 +27,6 @@ def again():  # Run again
         clr()
         P("Invalid Input! Try again.")
         again()
-
 
 class Text:
     def text_analyzer(self, text: str) -> dict:
@@ -217,7 +217,6 @@ class Text:
                 P(CUT)
                 return P("Integer: None")
 
-
 def string_game() -> None:
     clr()
     txt = Text()
@@ -248,7 +247,6 @@ def string_game() -> None:
     text_area.configure(state='disabled')  # Make the text area read-only
 
     window.mainloop()
-
 
 if __name__ == "__main__":
     string_game()
